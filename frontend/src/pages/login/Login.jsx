@@ -16,14 +16,13 @@ const Login = () => {
         </div>
 
         {/*  form */}
-        <div className="w-full lg:w-1/2 p-8 flex flex-col gap-1 items-center justify-center ">
+        <div className=" w-full lg:w-1/2 p-8 flex flex-col gap-1 items-center justify-center ">
           <h1 className="text-2xl font-bold"> Log In </h1>
-          <form className="flex flex-col gap-4">
-           
-            
+          <form className="flex flex-col  items-center gap-4">
             {/* Email */}
-            <div className="w-96">
-              <label className="label label-text" htmlFor="email">
+            <div className=" w-[17rem] md:w-96 ">
+              <label className="label label-text"
+               htmlFor="email">
                 {" "}
                 Email{" "}
               </label>
@@ -35,7 +34,7 @@ const Login = () => {
               />
             </div>
             {/* Password */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <label className="label label-text" htmlFor="password">
                 {" "}
                 Password{" "}
@@ -47,11 +46,9 @@ const Login = () => {
                 id="password"
               />
             </div>
-            
 
-            
             {/* Submit */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <button className="btn btn-gradient bg--sky-500 btn-accent waves waves-light w-full">
                 {" "}
                 Log In{" "}
