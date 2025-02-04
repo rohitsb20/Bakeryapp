@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import generateToken from "../utils/token.js";
-import User from "../modals/user.modal.js"
+import User from "../modals/user.modal.js";
 
 export const signup = async (req, res) => {
   try {
@@ -46,6 +46,36 @@ export const signup = async (req, res) => {
     }
   } catch (error) {
     console.log("Error in signup controller", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ msg: "All fields are required" });
+    }
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ msg: "user does not exist" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ msg: "Invalid credentials" });
+    }
+
+    generateToken(user._id, res);
+    res.status(200).json({
+      _id: user._id,
+      fullname: user.fullname,
+      email: user.email,
+    });
+  } catch (error) {
+    console.log("Error in login controller", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
