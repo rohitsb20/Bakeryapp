@@ -82,10 +82,10 @@ const Signup = () => {
           </form>
           <div className="mt-4 text-center">
             <Link
-              href="/signup"
+              href="/login"
               className="text-sm text-secondary hover:text-gray-800"
             >
-              Don&#39;t have an account? Sign up
+              ALready have an account? Log In
             </Link>
           </div>
         </div>
