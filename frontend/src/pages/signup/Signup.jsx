@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import useSignup from "../../hooks/useSignup.js";
 
 const Signup = () => {
+
+  const { signupData } = useSignup();
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    await signupData(formData);
+  }
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="max-w-4xl w-full flex rounded-lg shadow-lg overflow-hidden bg-white">
@@ -18,7 +36,7 @@ const Signup = () => {
         {/*  form */}
         <div className="w-full lg:w-1/2 p-8 flex flex-col gap-1 items-center ">
           <h1 className="text-2xl font-bold"> Sign Up </h1>
-          <form className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* Fullname */}
             <div className="w-[17rem] md:w-96">
               <label className="label label-text" htmlFor="fullname">
@@ -30,6 +48,8 @@ const Signup = () => {
                 placeholder="John Doe"
                 className="input  focus:border-sky-500"
                 id="fullname"
+                value={formData.fullname}
+                onChange={(e) => setFormData({ ...formData, fullname: e.target.value })}
               />
             </div>
             {/* Email */}
@@ -43,6 +63,8 @@ const Signup = () => {
                 placeholder="JohnDoe@123"
                 className="input focus:border-sky-500"
                 id="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
             {/* Password */}
@@ -56,6 +78,8 @@ const Signup = () => {
                 placeholder="********"
                 className="input focus:border-sky-500"
                 id="password"
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
             {/* Confirm Password */}
@@ -70,6 +94,8 @@ const Signup = () => {
                 placeholder="********"
                 className="input focus:border-sky-500"
                 id="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
               />
             </div>
             {/* Submit */}
