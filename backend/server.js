@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.use('/api/signup', authRoutes);
+app.use('/api/auth', authRoutes);
 
 
 
