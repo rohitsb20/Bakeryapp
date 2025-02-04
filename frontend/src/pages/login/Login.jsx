@@ -69,6 +69,7 @@ const [password, setPassword] = useState("");
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            
 
             {/* Submit */}
             <div className="w-[17rem] md:w-96">

@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom"
+import useLogout from "../hooks/useLogout";
+import useAuthContext from "../zustand/useAuthContext";
 
 
 const navLinks = [
@@ -10,6 +12,9 @@ const navLinks = [
 ]
 
 const Header = () => {
+
+  const {logoutData} = useLogout();
+  const {authUser} = useAuthContext();
   return (
     <nav className="navbar rounded-box ">
       <div className="w-full md:flex md:items-center md:gap-2">
@@ -21,7 +26,10 @@ const Header = () => {
             >
               Logo
             </a>
-            <div className="md:hidden">
+            <div className="ml-5 capitalize text-sm p-2 w-fit rounded-box">
+              Hi, {authUser.fullname}
+            </div>
+            <div className="md:hidden ">
               <button
                 type="button"
                 className="collapse-toggle btn btn-outline btn-secondary btn-md btn-square"
@@ -44,20 +52,21 @@ const Header = () => {
               <li key={index}>
                 <Link
                   to={link.path}
-                  className="link link-animated no-underline hover:bg-transparent
+                  className="link hover:text-sky-500  no-underline hover:bg-transparent
                     hover:scale-105   transition-transform duration-300"
                 >
                   {link.title}
                 </Link>
               </li>
             ))}
-            <Link
-              to="/logout"
-              className="btn btn-gradient btn-accent btn-md  
-            hover:bg-sky-500"
+            <button
+              onClick={logoutData}
+              className="btn btn-gradient bg--sky-500 btn-accent waves 
+            -light"
             >
-              Logout
-            </Link>
+              {" "}
+              Logout{" "}
+            </button>
           </ul>
         </div>
       </div>

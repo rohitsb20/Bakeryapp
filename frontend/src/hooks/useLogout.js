@@ -8,7 +8,7 @@ export default function useLogout() {
     const {logoutUser} = useAuthContext();
   
     const [loading, setLoading] = useState(false);
-    const logout = async () => {
+    const logoutData = async () => {
         setLoading(true);
         try {
         const response = await fetch("/api/auth/logout", {
@@ -40,5 +40,5 @@ if(data.error){
 
     };
     
-    return { logout, loading };
+    return { logoutData, loading };
 }
