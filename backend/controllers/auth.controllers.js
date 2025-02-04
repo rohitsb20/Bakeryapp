@@ -2,6 +2,10 @@ import bcrypt from "bcryptjs";
 import generateToken from "../utils/token.js";
 import User from "../modals/user.modal.js";
 
+{
+  /* SIGNUP CONTROLLER */
+}
+
 export const signup = async (req, res) => {
   try {
     const { fullname, email, password, confirmPassword } = req.body;
@@ -50,6 +54,9 @@ export const signup = async (req, res) => {
   }
 };
 
+
+{ /* LOGIN CONTROLLER */ }
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -76,6 +83,21 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Error in login controller", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
+{
+  /* LOGOUT CONTROLLER */
+}
+
+export const logout = (req, res) => {
+  try {
+     res.clearCookie("token");
+     res.status(200).json({ msg: "Logged out" });
+  } catch (error) {
+    console.log("Error in logout controller", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
