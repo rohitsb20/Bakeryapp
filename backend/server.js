@@ -18,7 +18,7 @@ app.use('/api/auth', authRoutes);
 
 
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     dbConnect();
     console.log('Server is running ');
 }   );
