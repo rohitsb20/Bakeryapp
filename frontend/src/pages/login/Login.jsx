@@ -1,6 +1,21 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import useLogin from "../../hooks/useLogin";
+
 
 const Login = () => {
+const { loginData } = useLogin();
+
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await loginData({email, password});
+ 
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="max-w-4xl w-full flex rounded-lg shadow-lg overflow-hidden bg-white">
@@ -18,11 +33,13 @@ const Login = () => {
         {/*  form */}
         <div className=" w-full lg:w-1/2 p-8 flex flex-col gap-1 items-center justify-center ">
           <h1 className="text-2xl font-bold"> Log In </h1>
-          <form className="flex flex-col  items-center gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col  items-center gap-4"
+          >
             {/* Email */}
             <div className=" w-[17rem] md:w-96 ">
-              <label className="label label-text"
-               htmlFor="email">
+              <label className="label label-text" htmlFor="email">
                 {" "}
                 Email{" "}
               </label>
@@ -31,6 +48,9 @@ const Login = () => {
                 placeholder="JohnDoe@123"
                 className="input focus:border-sky-500"
                 id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             {/* Password */}
@@ -44,6 +64,9 @@ const Login = () => {
                 placeholder="********"
                 className="input focus:border-sky-500"
                 id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 

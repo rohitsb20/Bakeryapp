@@ -48,6 +48,8 @@ const Signup = () => {
                 placeholder="John Doe"
                 className="input  focus:border-sky-500"
                 id="fullname"
+                name="fullname"
+                
                 value={formData.fullname}
                 onChange={(e) => setFormData({ ...formData, fullname: e.target.value })}
               />
@@ -63,6 +65,7 @@ const Signup = () => {
                 placeholder="JohnDoe@123"
                 className="input focus:border-sky-500"
                 id="email"
+                name="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -78,6 +81,7 @@ const Signup = () => {
                 placeholder="********"
                 className="input focus:border-sky-500"
                 id="password"
+                name="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
@@ -94,6 +98,7 @@ const Signup = () => {
                 placeholder="********"
                 className="input focus:border-sky-500"
                 id="confirmPassword"
+                name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
               />
