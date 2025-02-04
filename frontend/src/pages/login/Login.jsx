@@ -57,7 +57,7 @@ const Login = () => {
           </form>
           <div className="mt-4 text-center">
             <Link
-              href="/signup"
+              to="/signup"
               className="text-sm text-secondary hover:text-gray-800"
             >
               Don&#39;t have an account? Sign up

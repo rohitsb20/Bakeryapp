@@ -20,7 +20,7 @@ const Signup = () => {
           <h1 className="text-2xl font-bold"> Sign Up </h1>
           <form className="flex flex-col gap-4">
             {/* Fullname */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <label className="label label-text" htmlFor="fullname">
                 {" "}
                 Full name{" "}
@@ -33,7 +33,7 @@ const Signup = () => {
               />
             </div>
             {/* Email */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <label className="label label-text" htmlFor="email">
                 {" "}
                 Email{" "}
@@ -46,7 +46,7 @@ const Signup = () => {
               />
             </div>
             {/* Password */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <label className="label label-text" htmlFor="password">
                 {" "}
                 Password{" "}
@@ -60,7 +60,7 @@ const Signup = () => {
             </div>
             {/* Confirm Password */}
 
-            <div className="w-96">
+            <div className=" w-[17rem] md:w-96 ">
               <label className="label label-text" htmlFor="confirmPassword">
                 {" "}
                 Confirm Password{" "}
@@ -73,7 +73,7 @@ const Signup = () => {
               />
             </div>
             {/* Submit */}
-            <div className="w-96">
+            <div className="w-[17rem] md:w-96">
               <button className="btn btn-gradient bg--sky-500 btn-accent waves waves-light w-full">
                 {" "}
                 Sign Up{" "}
@@ -82,10 +82,10 @@ const Signup = () => {
           </form>
           <div className="mt-4 text-center">
             <Link
-              href="/login"
+              to="/login"
               className="text-sm text-secondary hover:text-gray-800"
             >
-              ALready have an account? Log In
+              Already have an account? Log In
             </Link>
           </div>
         </div>
