@@ -1,10 +1,11 @@
+import Header from "../../components/Header"
 
 
 const Home = () => {
   return (
-    <div className="base-300 p-6" 
+    <div className="base-300 px-6 py-3" 
     >
-        home
+       <Header />
     </div>
   )
 }
