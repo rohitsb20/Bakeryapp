@@ -4,11 +4,18 @@ const Footer = () => {
   return (
     <footer className="footer bg-base-200/60 flex flex-col items-center gap-4 p-6">
       <div className="flex items-center gap-2 text-xl font-bold">
-        image
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          width={50}
+          height={50}
+          className="w-[30px] md:w-[30px]"
+        />
+
         <span>Logo</span>
       </div>
       <aside>
-        <p>©2025FLogo</p>
+        <p>©2025 Logo</p>
       </aside>
       <nav className="text-base-content grid-flow-col gap-4">
         <Link className="link link-hover" to="#">

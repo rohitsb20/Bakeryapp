@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import useLogout from "../hooks/useLogout";
-import useAuthContext from "../zustand/useAuthContext";
+
 
 
 const navLinks = [
@@ -14,21 +14,16 @@ const navLinks = [
 const Header = () => {
 
   const {logoutData} = useLogout();
-  const {authUser} = useAuthContext();
+ 
   return (
     <nav className="navbar rounded-box ">
       <div className="w-full md:flex md:items-center md:gap-2">
         <div className="flex items-center justify-between">
           <div className="navbar-start items-center justify-between max-md:w-full">
-            <a
-              className="link text-base-content link-neutral text-xl font-semibold no-underline"
-              href="#"
-            >
-              Logo
-            </a>
-            <div className="ml-5 capitalize text-sm p-2 w-fit rounded-box">
-              Hi, {authUser.fullname}
-            </div>
+            <img src="/images/logo.png" alt="logo"
+            width={70} height={50} 
+            className="w-[30px] md:w-[70px]"/>
+         
             <div className="md:hidden ">
               <button
                 type="button"
